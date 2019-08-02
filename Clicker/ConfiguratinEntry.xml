@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ActionsEntry>
+  <Action>
+    <X>1</X>
+    <Y>2</Y>
+    <Text>dddd</Text>
+    <interval>11</interval>
+    <Type>1</Type>
+  </Action>
+  <Action>
+    <X>3</X>
+    <Y>4</Y>
+    <Text>dddde</Text>
+    <interval>113</interval>
+    <Type>1</Type>
+  </Action>
+</ActionsEntry>
