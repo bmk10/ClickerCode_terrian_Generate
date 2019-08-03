@@ -60,6 +60,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.checkBoxWait1 = new System.Windows.Forms.CheckBox();
+            this.labelGenInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nWait)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -267,7 +268,7 @@
             // btnOpen
             // 
             this.btnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOpen.Location = new System.Drawing.Point(279, 66);
+            this.btnOpen.Location = new System.Drawing.Point(109, 3);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(52, 23);
             this.btnOpen.TabIndex = 44;
@@ -365,11 +366,21 @@
             this.checkBoxWait1.Text = "wait";
             this.checkBoxWait1.UseVisualStyleBackColor = true;
             // 
+            // labelGenInfo
+            // 
+            this.labelGenInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelGenInfo.Location = new System.Drawing.Point(3, 132);
+            this.labelGenInfo.Name = "labelGenInfo";
+            this.labelGenInfo.Size = new System.Drawing.Size(600, 13);
+            this.labelGenInfo.TabIndex = 60;
+            this.labelGenInfo.Text = "Total: 3 RunTime: 20sec";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 146);
+            this.Controls.Add(this.labelGenInfo);
             this.Controls.Add(this.checkBoxWait1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label11);
@@ -441,6 +452,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBoxWait1;
+        private System.Windows.Forms.Label labelGenInfo;
     }
 }
 

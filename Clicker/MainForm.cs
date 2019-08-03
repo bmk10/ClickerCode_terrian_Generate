@@ -361,11 +361,12 @@ namespace Clicker
         private void btnOpen_Click(object sender, EventArgs e)
         {
             bool runIt = false;
+            /*
             if (MessageBox.Show("After openning configuration, are you want to run it?", "Clicker", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                  == DialogResult.Yes)
             {
                 runIt = true;
-            }
+            }*/
             OpenFileDialog file = new OpenFileDialog();
             file.Filter = "XML File |*.xml";
             file.Multiselect = false;
@@ -376,6 +377,45 @@ namespace Clicker
                 this.Text = "Clicer - " + name.Substring(0, name.Length - 4);
             }
         }
+        /*
+         * // heightmap and change it into a normal map
+         * vector<float> HeightMap;
+vector<int32_t> normalmap(MapSize*MapSize);
+
+float invTwoDX = 1.0f / CellSpacing;
+float invTwoDZ = 1.0f / CellSpacing;
+for(uint32_t i = 2; i < MapSize-1; ++i){// make sure not to overrun the array bounds by starting at 2 and stoping one early
+for(uint32_t j = 2; j < MapSize-1; ++j){
+float t = HeightMap[(i-1)*MapSize + j];
+float b = HeightMap[(i+1)*MapSize + j];
+float l = HeightMap[i*MapSize + j - 1];
+float r = HeightMap[i*MapSize + j + 1];
+D3DXVECTOR3 tanZ(0.0f, (t-b)*invTwoDZ, 1.0f);
+D3DXVECTOR3 tanX(1.0f, (r-l)*invTwoDX, 0.0f);
+D3DXVECTOR3 N;
+D3DXVec3Cross(&N, &tanZ, &tanX);
+D3DXVec3Normalize(&N, &N);
+int8_t rgba[4];// this needs to be stored in little endian format, which is why the info is stored as a bgr instead of rgb
+float x= N.x * 127.0f;
+rgba[2] = static_cast<int8_t>(x);// CAST!!!
+float y= N.y * 127.0f;
+rgba[1] = static_cast<int8_t>(y);// CAST!!!
+float z= N.z * 127.0f;
+rgba[0] = static_cast<int8_t>(z);// CAST!!!
+rgba[3]= 0;
+normalmap[i*MapSize+j]= *reinterpret_cast<int32_t*>(rgba);
+}
+}
+for(uint32_t j(0), i(1); j < MapSize-1; j++, i++){// copy all the top data stop one early so we dont overrun the array
+normalmap[MapSize+ j]= normalmap[(MapSize*2)+j];// top data
+normalmap[((MapSize-1)*MapSize)+j]= normalmap[j]= normalmap[((MapSize-2)*MapSize)+j];// cover the edges.. bottom and top at the same time
+normalmap[i*MapSize + 1]=normalmap[(i*MapSize) +2];// this is the left side going down
+normalmap[i*MapSize]= normalmap[i*MapSize + (MapSize -2) ];// get this data from the other side so the seams match up... 
+} 
+for(uint32_t i = 0; i < MapSize; i++){// this copies all the data on the right, starting at 0 and going to the end
+normalmap[i*MapSize + (MapSize-1) ]= normalmap[i*MapSize + (MapSize -2) ];
+}
+         * */
 
         private void OpenFileXml(bool runIt, string file)
         {
@@ -387,15 +427,26 @@ namespace Clicker
                 {
                     ActionsEntry entry = (ActionsEntry)ser.Deserialize(fs);
                     lvActions.Items.Clear();
+                    long linterValTotal = 0;
+                   // int iTimeDrivider = 3; // don't set to zero..
+                    // for 360 double or single? 0 wait clicks, its about 74 seconds so
+                    // our contant for time/ clicks is, 4.8648648648648648648648648648649
+                    float fConstantActionsTime = 4.8648648648648648648648648648649f;
+
                     foreach (ActionsEntryAction ae in entry.Action)
                     {
                         string point = ae.X.ToString() + "," + ae.Y.ToString();
                         string interval = (ae.interval).ToString();
                         ListViewItem lvi = new ListViewItem(new string[] { point, ((ClickType)(ae.Type)).ToString(), interval, ae.Text });
                         ActionEntry acion = new ActionEntry(ae.X, ae.Y, ae.Text, ae.interval, (ClickType)(ae.Type));
+                        linterValTotal +=  ae.interval;
+
                         lvi.Tag = acion;
                         lvActions.Items.Add(lvi);
                     }
+                    //     labelGenInfo.Text = "Total" + lvActions.Items.Count.ToString() + " Time Est:" + ((lvActions.Items.Count / linterValTotal) + linterValTotal).ToString();
+                    labelGenInfo.Text = "Total" + lvActions.Items.Count.ToString() + " Time Est:" + ((lvActions.Items.Count / fConstantActionsTime) + linterValTotal).ToString();
+
                     
                     if (runIt)
                     {

@@ -7,3 +7,12 @@ E:\games_src\ClickerCode_terrian_Generate\Clicker\obj\Debug\Clicker.Properties.R
 E:\games_src\ClickerCode_terrian_Generate\Clicker\obj\Debug\Clicker.csproj.GenerateResource.Cache
 E:\games_src\ClickerCode_terrian_Generate\Clicker\obj\Debug\Clicker.exe
 E:\games_src\ClickerCode_terrian_Generate\Clicker\obj\Debug\Clicker.pdb
+E:\games_src\ClickerCode_terrian_Generate\ClickerCode_terrian_Generate\Clicker\obj\Debug\Clicker.exe
+E:\games_src\ClickerCode_terrian_Generate\ClickerCode_terrian_Generate\Clicker\obj\Debug\Clicker.pdb
+E:\games_src\ClickerCode_terrian_Generate\ClickerCode_terrian_Generate\Clicker\bin\Debug\Clicker.exe
+E:\games_src\ClickerCode_terrian_Generate\ClickerCode_terrian_Generate\Clicker\bin\Debug\Clicker.pdb
+E:\games_src\ClickerCode_terrian_Generate\ClickerCode_terrian_Generate\Clicker\obj\Debug\Clicker.csprojResolveAssemblyReference.cache
+E:\games_src\ClickerCode_terrian_Generate\ClickerCode_terrian_Generate\Clicker\obj\Debug\Clicker.EditWin.resources
+E:\games_src\ClickerCode_terrian_Generate\ClickerCode_terrian_Generate\Clicker\obj\Debug\Clicker.MainForm.resources
+E:\games_src\ClickerCode_terrian_Generate\ClickerCode_terrian_Generate\Clicker\obj\Debug\Clicker.Properties.Resources.resources
+E:\games_src\ClickerCode_terrian_Generate\ClickerCode_terrian_Generate\Clicker\obj\Debug\Clicker.csproj.GenerateResource.Cache

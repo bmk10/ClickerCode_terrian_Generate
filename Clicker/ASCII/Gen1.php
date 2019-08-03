@@ -40,8 +40,11 @@ $y = sin($i);
 $x *= 10;
 $y *= 10;
 
+$x += 500;
+$y += 500;
 
-$x = round(cos($i));
+
+$x = round($x);
 
 
 $y = round($y);
